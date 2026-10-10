@@ -1,6 +1,7 @@
 #include <iostream>
 
-int countChar(char *wort, char gezaehltesWort)
+// Vor dem char noch const, da es Typsicherheit bringt
+int countChar(const char *wort, char gezaehltesWort)
 {
     int anzahlDerZeichen = 0;
 
@@ -18,7 +19,7 @@ int main()
 {
     std::cout << "Programm start..." << std::endl;
 
-    std::cout << countChar("Mississippi", 's') << std::endl;
+    std::cout << countChar("Missssissippi", 's') << std::endl;
 
     std::cout << "Programm ende..." << std::endl;
 }

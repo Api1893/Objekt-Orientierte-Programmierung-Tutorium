@@ -15,11 +15,15 @@ void grade(int points)
     {
         std::cout << "Sehr gut" << std::endl;
     }
+
+    else if (points < 0 || points > 100) {
+        std::cout << "Keine gueltige Punktzahl eingegeben!" << std::endl;
+    }
 }
 
 int main()
 {
     std::cout << "starting tests..." << std::endl;
-    grade(90);
+    grade(800);
     std::cout << "all tests passed..." << std::endl;
 }

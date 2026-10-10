@@ -2,8 +2,6 @@
 
 void sortThree(int *a, int *b, int *c)
 {
-    // std::cout << number_a << std::endl;
-
     if (*a > *b)
     {
         std::swap(*a, *b);
