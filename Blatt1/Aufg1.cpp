@@ -6,9 +6,15 @@ void grade(int points)
     {
         std::cout << "nicht bestanden" << std::endl;
     }
+
     else if (points <= 75)
     {
         std::cout << "bestanden" << std::endl;
+    }
+
+    else if (points >= 75 && points < 90)
+    {
+        std::cout << "gut" << std::endl;
     }
 
     else if (points <= 90)
@@ -20,6 +26,6 @@ void grade(int points)
 int main()
 {
     std::cout << "starting tests..." << std::endl;
-    grade(90);
+    grade(80);
     std::cout << "all tests passed..." << std::endl;
 }

@@ -1,6 +1,6 @@
 #include <iostream>
 
-int countChar(char *wort, char gezaehltesWort)
+int countChar(char* wort, char gezaehltesWort)
 {
     int anzahlDerZeichen = 0;
 
