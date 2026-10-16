@@ -1,0 +1,18 @@
+# Abhängigkeiten
+node_modules/
+
+# Build-Ausgaben
+dist/
+build/
+
+# Geheime Zugangsdaten – unbedingt ignorieren!
+.env
+.env.local
+
+# Logs
+*.log
+
+# Betriebssystem- und Editor-Dateien
+.DS_Store
+Thumbs.db
+.idea/
