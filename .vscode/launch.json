@@ -1,0 +1,27 @@
+{
+    "version": "0.2.0",
+    "configurations": [
+      
+      {
+            "name": "(lldb) Starten",
+            "type": "cppdbg",
+            "request": "launch",
+            "program": "${fileDirname}/${fileBasenameNoExtension}",
+            "args": [],
+            "stopAtEntry": false,
+            "cwd": "${fileDirname}",
+            "environment": [],
+            "externalConsole": false,
+            "MIMode": "lldb",
+            "preLaunchTask": "C/C++: clang Aktive Datei kompilieren"
+      },
+      {
+            "name": "(lldb) Anfügen",
+            "type": "cppdbg",
+            "request": "attach",
+            "program": "${fileDirname}/${fileBasenameNoExtension}",
+            "processId": "${command:pickProcess}",
+            "MIMode": "lldb"
+      }
+]
+}
