@@ -14,4 +14,6 @@ add_executable(Objekt_Orientierte_Programmierung_Tutorium
         Blatt2/Aufg2.cpp
         Blatt2/Aufg3.cpp
         Blatt2/Aufg4.cpp
+        Blatt3/Vorlesung_mitschrieb.cpp
+        Blatt3/Aufgabenblatt3.cpp
 )
