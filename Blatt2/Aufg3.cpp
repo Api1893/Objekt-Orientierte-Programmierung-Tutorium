@@ -11,7 +11,7 @@ std::string grade(int points) {
 int main() {
         std::cout << "Programm start..." << std::endl;
 
-        //std::cout << grade(40) << std::endl;
+        std::cout << grade(40) << std::endl;
         assert(grade(49) == "Nicht bestanden");
         assert(grade(75) == "Bestanden");
         assert(grade(76) == "Gut");

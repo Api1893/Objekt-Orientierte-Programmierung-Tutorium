@@ -32,6 +32,7 @@ int main() {
     std::cout << "Programm start..." << std::endl;
 
     Position mordor;
+    std::cout << "Eingabe = Mordor" << std::endl;
     mordor.set("Mordor", 3, 4);
 
     assert(mordor.getX() == 3);
