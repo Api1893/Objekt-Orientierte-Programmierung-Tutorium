@@ -5,6 +5,7 @@
 */
 
 #include <iostream>
+#include <cassert>
 namespace hfu{
     // ------------- Aufgabe 1 a) -----------------
     int* copy(int* numbers, int size) {
@@ -18,8 +19,17 @@ namespace hfu{
     }
 
     // --------- Aufgabe 1 b) ----------------
-    void compare(int* sorted, int* numbers, int size) {
-
+    bool compare(int* sorted, int* numbers, int size) {
+        for(int i = 0; i < size; i++) {
+            if (sorted[i] == numbers[i]) {
+                std::cout << sorted[i] << std::endl;
+                return true;
+            } else {
+                std:
+                    std::cout << "Nicht gleich" << std::endl;
+                return false;
+            }
+        }
     }
 }
 
@@ -41,7 +51,6 @@ int main() {
     int numbersNotSorted[6] = {2,1,4,3,5,8};
     int sizeToCompare = 6;
     int numbersSorted[6] = {1,2,3,4,5,8};
-    hfu::compare(numbersSorted, numbersNotSorted, sizeToCompare);
-
+    assert(hfu::compare(numbersSorted, numbersNotSorted, sizeToCompare) == true);
 }
 
