@@ -38,6 +38,10 @@ int main() {
     delete[] result;
 
     std::cout << "----------- Aufgabe 1 b) --------------" << std::endl;
+    int numbersNotSorted[6] = {2,1,4,3,5,8};
+    int sizeToCompare = 6;
+    int numbersSorted[6] = {1,2,3,4,5,8};
+    hfu::compare(numbersSorted, numbersNotSorted, sizeToCompare);
 
 }
 
