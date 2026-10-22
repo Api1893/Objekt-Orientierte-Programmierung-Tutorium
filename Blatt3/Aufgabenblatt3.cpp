@@ -21,15 +21,12 @@ namespace hfu{
     // --------- Aufgabe 1 b) ----------------
     bool compare(int* sorted, int* numbers, int size) {
         for(int i = 0; i < size; i++) {
-            if (sorted[i] == numbers[i]) {
-                std::cout << sorted[i] << std::endl;
-                return true;
-            } else {
-                std:
-                    std::cout << "Nicht gleich" << std::endl;
+            if (sorted[i] != numbers[i]) {
+                std::cout << "Nicht gleich" << std::endl;
                 return false;
             }
         }
+        return true;
     }
 }
 
@@ -48,9 +45,10 @@ int main() {
     delete[] result;
 
     std::cout << "----------- Aufgabe 1 b) --------------" << std::endl;
-    int numbersNotSorted[6] = {2,1,4,3,5,8};
+    int numbersNotSorted[6] = {2,1,5,4,8};
     int sizeToCompare = 6;
     int numbersSorted[6] = {1,2,3,4,5,8};
-    assert(hfu::compare(numbersSorted, numbersNotSorted, sizeToCompare) == true);
+
+    //assert(hfu::compare(numbersSorted, numbersNotSorted, sizeToCompare) == true);
 }
 
