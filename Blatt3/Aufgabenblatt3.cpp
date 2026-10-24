@@ -6,6 +6,7 @@
 
 #include <iostream>
 #include <cassert>
+
 namespace hfu {
     // ------------- Aufgabe 1 a) -----------------
     int* copy(int* numbers, int size) {
@@ -42,14 +43,32 @@ namespace hfu {
 
     void test_sort(int* numbers, int size) {
         int* original = copy(numbers, size);
+        sort(numbers, size);
 
-        for(int i = 1; i < size; i++) {
-            if (original[i] <= original[i + 1]) {
-                assert("Sortier-Methode nicht richtig implementert");
-                i++;
-            }
+        for(int i = 0; i + 1 < size; i++) {
+            assert(numbers[i] <= numbers[i + 1]);
         }
+
+        // Vergleich
+        compare(numbers, original, size);
+        delete[] original;
     }
+
+    // --------- Aufgabe 1 d) ----------------
+    // Gleicher Namensmethode möglich, durch Überladung
+    void test_sort() {
+        int firstArray[5] = {1,2,3,4,5};
+        int secondArray[5] = {5,4,3,2,1};
+        int thirdArray[5] = {3,-1,8,-6,2};
+        int fourthArray[5] = {7,3,5,2};
+        int size = 5;
+
+        test_sort(firstArray, size);
+        test_sort(secondArray, size);
+        test_sort(thirdArray, size);
+        test_sort(fourthArray, size);
+    }
+
 }
 
 int main() {
@@ -65,7 +84,6 @@ int main() {
         std::cout << result[i] << std::endl;
     }
 
-    hfu::test_sort(result, 5);
     delete[] result;
 
     std::cout << "----------- Aufgabe 1 b) --------------" << std::endl;
@@ -75,11 +93,12 @@ int main() {
     hfu::compare(numbersSorted, numbersNotSorted, sizeToCompare);
 
     std::cout << "----------- Aufgabe 1 c) --------------" << std::endl;
-    hfu::sort(numbers, size);
+    hfu::test_sort(numbers, size);
     for (int i = 0; i < size; i++) {
         std::cout << numbers[i] << std::endl;
     }
 
-    std::cout << "----------- Aufgabe 2 a) --------------" << std::endl;
+    std::cout << "----------- Aufgabe 1 d) --------------" << std::endl;
+    hfu::test_sort();
 }
 
