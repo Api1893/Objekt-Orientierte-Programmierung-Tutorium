@@ -6,6 +6,7 @@
 
 #include <iostream>
 #include <cassert>
+#include <string>
 
 namespace hfu {
     // ------------- Aufgabe 1 a) -----------------
@@ -21,10 +22,8 @@ namespace hfu {
 
     // --------- Aufgabe 1 b) ----------------
     void compare(int* sorted, int* numbers, int size) {
-        for(int i = 0; i < size; i++) {
-            if (sorted[i] == numbers[i]) {
-                assert(sorted[i] == numbers[i]);
-            }
+        for(int i = 0; i + 1 < size; i++) {
+            assert(sorted[i] <= sorted[i + 1]);
         }
     }
 
@@ -69,6 +68,28 @@ namespace hfu {
         test_sort(fourthArray, size);
     }
 
+    class Position {
+    private:
+        int x;
+        int y;
+        std::string name;
+
+    public:
+        // Konstruktor von Aufgabe 2 a)
+        Position (const std::string& name, int x, int y) : name(name), x(x), y(y) {}
+
+        int getX() const {
+            return x;
+        }
+
+        int getY() const {
+            return y;
+        }
+
+        const std::string& getName() const {
+            return name;
+        }
+    };
 }
 
 int main() {
@@ -83,7 +104,6 @@ int main() {
     for (int i = 0; i < size; i++) {
         std::cout << result[i] << std::endl;
     }
-
     delete[] result;
 
     std::cout << "----------- Aufgabe 1 b) --------------" << std::endl;
@@ -100,5 +120,19 @@ int main() {
 
     std::cout << "----------- Aufgabe 1 d) --------------" << std::endl;
     hfu::test_sort();
+
+    std::cout << "----------- Aufgabe 2 b) --------------" << std::endl;
+    std::string mordor = "Mordor";
+    hfu::Position position(mordor, 47, 11);
+    assert(position.getName() == mordor);
+    assert(position.getX() == 47);
+    assert(position.getY() == 11);
+
+    /* Die Variable wird nicht geändert, da es auf die Kopie eines Objekt zugreift.
+     * Also Position.getName(). Zudem muss es vor hfu::Position initialisiert werden.
+     * Eine andere Möglichkeit wäre es als Referenz zu übergeben. */
+    mordor[0] = 'X';
+    std::cout << mordor << std::endl;
+    assert(position.getName() == "Mordor");
 }
 
