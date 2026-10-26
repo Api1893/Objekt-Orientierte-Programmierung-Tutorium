@@ -82,4 +82,18 @@ int main() {
     std::string text2 = "Zweiter_Vergleich";
 
     hfu::stringCompare(text1, text2);
+
+    std::cout << "----------- Aufgabe 3 c) --------------" << std::endl;
+    std::string mordor1 = "Mordor1";
+    hfu::Position position1(mordor1, 47, 11);
+    assert(position1.compare(position) == 0);
+    hfu::Position position_name("zordor", 47, 11);
+    hfu::Position position_x1(mordor1, 48, 11);
+    hfu::Position position_y1(mordor1, 47, 12);
+    assert(position1.compare(position_name)<0);
+    assert(position1.compare(position_x1)<0);
+    assert(position1.compare(position_y1)<0);
+    assert(position_name.compare(position1)>0);
+    assert(position_x1.compare(position1)>0);
+    assert(position_y1.compare(position1)>0);
 }
