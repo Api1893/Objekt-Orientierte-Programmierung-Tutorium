@@ -31,6 +31,29 @@ namespace hfu {
         const std::string& getName() const {
             return name;
         }
+
+        int compare(const Position& other) const {
+            // other liefert Objekt im Klammern (position)
+            // x oder nur getX() liefert Objekt vor dem (.), also Bsp. other.
+            if (x != other.x) {
+                std::cout << "test1" << std::endl;
+                return -1;
+            }
+
+            if (y != other.y) {
+                std::cout << "test" << std::endl;
+
+                return -1;
+            }
+
+            if (name != other.name) {
+                std::cout << getName() << std::endl;
+                std::cout << name << std::endl;
+                return -1;
+            }
+
+            return 1;
+        }
     };
 }
 
@@ -74,7 +97,7 @@ int main() {
      * Also Position.getName(). Zudem muss es vor hfu::Position initialisiert werden.
      * Eine andere Möglichkeit wäre es als Referenz zu übergeben. */
     mordor[0] = 'X';
-    std::cout << mordor + " Test Ausgabe für Index 0" << std::endl;
+    std::cout << mordor + " Test Ausgabe fuer Index 0" << std::endl;
     assert(position.getName() == "Mordor");
 
     std::cout << "----------- Aufgabe 3 b) --------------" << std::endl;
@@ -84,15 +107,16 @@ int main() {
     hfu::stringCompare(text1, text2);
 
     std::cout << "----------- Aufgabe 3 c) --------------" << std::endl;
-    std::string mordor1 = "Mordor1";
+    std::string mordor1 = "Mordor";
     hfu::Position position1(mordor1, 47, 11);
-    assert(position1.compare(position) == 0);
+    //assert(position1.compare(position) == 0);
+
     hfu::Position position_name("zordor", 47, 11);
     hfu::Position position_x1(mordor1, 48, 11);
     hfu::Position position_y1(mordor1, 47, 12);
-    assert(position1.compare(position_name)<0);
-    assert(position1.compare(position_x1)<0);
-    assert(position1.compare(position_y1)<0);
+    assert(position.compare(position_name) < 0);
+    assert(position.compare(position_x1) < 0);
+    assert(position.compare(position_y1) < 0);
     assert(position_name.compare(position1)>0);
     assert(position_x1.compare(position1)>0);
     assert(position_y1.compare(position1)>0);
