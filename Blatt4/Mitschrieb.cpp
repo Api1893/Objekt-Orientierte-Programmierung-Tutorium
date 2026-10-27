@@ -43,8 +43,7 @@ void dump(Point p) {
 
 int main() {
     Point p(47, 11);
-    dump(p);
-    Point& p_copy = p;  // Hier steht gleicher Zeiger drin
-    p.set_x(23);
-    std::cout << p.get_x() << " " << p_copy.get_x() << std::endl;
+    Point p_copy = Point(p);
+
+    return 0;
 }
