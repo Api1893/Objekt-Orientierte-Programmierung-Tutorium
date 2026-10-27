@@ -29,14 +29,14 @@ namespace hfu {
 
     // --------- Aufgabe 1 c) ----------------
     void sort(int* numbers, int size) {
-    for (int i = 1; i < size; ++i) {
-        int key = numbers[i];
-        int j = i - 1;
-        while (j >= 0 && numbers[j] > key) {
-            numbers[j + 1] = numbers[j];
-            j = j - 1;
-        }
-        numbers[j + 1] = key;
+        for (int i = 1; i < size; ++i) {
+            int key = numbers[i];
+            int j = i - 1;
+            while (j >= 0 && numbers[j] > key) {
+                numbers[j + 1] = numbers[j];
+                j = j - 1;
+            }
+            numbers[j + 1] = key;
         }
     }
 
@@ -71,8 +71,9 @@ namespace hfu {
     // --------- Aufgabe 3 b) ----------------
     // String vergleichen
     void stringCompare(std::string& text1, std::string& text2) {
-        // std::cout << text1 << std::endl;
-        // std::cout << text2 << std::endl;
+        std::cout << (text1 == text2) << std::endl;
+        std::cout << (text1 < text2) << std::endl;
+        std::cout << (text1 > text2) << std::endl;
 
         std::string firstCompareText = text1;
         std::string secondCompareText = text2;

@@ -7,7 +7,7 @@
 #include <iostream>
 #include <cassert>
 #include <string>
-#import "variables.h"
+#include "variables.h"
 
 namespace hfu {
     class Position {
@@ -35,26 +35,26 @@ namespace hfu {
         int compare(const Position& other) const {
             // other liefert Objekt im Klammern (position)
             // x oder nur getX() liefert Objekt vor dem (.), also Bsp. other.
-            if (x != other.x) {
-                std::cout << "test1" << std::endl;
-                return -1;
-            }
-
-            if (y != other.y) {
-                std::cout << "test" << std::endl;
-
-                return -1;
-            }
-
-            if (name != other.name) {
-                std::cout << getName() << std::endl;
-                std::cout << name << std::endl;
-                return -1;
-            }
-
-            return 1;
+            if (name < other.name) return -1;
+            if (name > other.name)return 1;
+            if (x != other.x) return x - other.x;
+            if (y != other.y) return y - other.y;
+            return 0;
         }
     };
+
+    // --------- Aufgabe 4 ----------------
+    void sort(hfu::Position* position, int size) {
+        for (int i = 1; i < size; i++) {
+            hfu::Position key = position[i];
+            int j = i - 1;
+            while (j >= 0 && position[j].compare(key) > 0) {
+                position[j + 1] = position[j];
+                j = j - 1;
+            }
+            position[j + 1] = key;
+        }
+    }
 }
 
 int main() {
@@ -109,15 +109,29 @@ int main() {
     std::cout << "----------- Aufgabe 3 c) --------------" << std::endl;
     std::string mordor1 = "Mordor";
     hfu::Position position1(mordor1, 47, 11);
-    //assert(position1.compare(position) == 0);
+    assert(position1.compare(position) == 0);
 
-    hfu::Position position_name("zordor", 47, 11);
+    hfu::Position position_name("Zordor", 47, 11);
     hfu::Position position_x1(mordor1, 48, 11);
     hfu::Position position_y1(mordor1, 47, 12);
+
     assert(position.compare(position_name) < 0);
     assert(position.compare(position_x1) < 0);
     assert(position.compare(position_y1) < 0);
-    assert(position_name.compare(position1)>0);
-    assert(position_x1.compare(position1)>0);
-    assert(position_y1.compare(position1)>0);
+    assert(position_name.compare(position1) > 0);
+    assert(position_x1.compare(position1) > 0);
+    assert(position_y1.compare(position1) > 0);
+
+    //std::cout << ("M" < "Z") << std::endl;
+    std::cout << "----------- Aufgabe 4 --------------" << std::endl;
+    hfu::Position positions[3] {
+        hfu::Position("Mordor", 5, 1),
+        hfu::Position("Auenland", 2, 3),
+        hfu::Position("Mordor", 1, 1)
+    };
+    hfu::sort(positions, 3);
+
+    for (int i = 0; i < 3; i++) {
+        std::cout << positions[i].getName() << positions[i].getX() << positions[i].getY() << std::endl;
+    }
 }
