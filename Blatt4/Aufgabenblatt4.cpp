@@ -15,6 +15,9 @@ namespace hfu {
 }
 
 int main () {
+    std::cout << "----------- Aufgabe 2 a)--------------" << std::endl;
+
+
     /*
     std::cout << "----------- Aufgabe 1 a)--------------" << std::endl;
     std::cout << hfu::gcd(0, 1) << std::endl;
@@ -22,7 +25,7 @@ int main () {
 
     std::cout << "----------- Aufgabe 1 b)--------------" << std::endl;
     std::cout << "Nun wird bei gcd(0,0) eine Fehlermeldung ausgegeben" << std::endl;
-    */
+
 
     std::cout << "----------- Aufgabe 1 c)--------------" << std::endl;
     bool exceptionHelper = false;
@@ -34,4 +37,5 @@ int main () {
         exceptionHelper = true;
     }
     assert((exceptionHelper) == true);
+    */
 }

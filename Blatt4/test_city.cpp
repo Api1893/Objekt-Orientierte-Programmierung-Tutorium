@@ -2,42 +2,43 @@
 #include <string>
 #include "city.h"
 
-
+// Konstruktor für Position
 hfu::Position createPosition(){
     std::string mordor = "Mordor";
     hfu::Position result(mordor, 47, 11);
     return result;
 }
 
+// Konstruktor für City
 hfu::City createCity(){
-    auto position=createPosition();
-    std::string pois[]={"Sauron", "Minas Morgul", "Orodruin"};
+    auto position = createPosition();
+    std::string pois[] = {"Sauron", "Minas Morgul", "Orodruin"};
     hfu::City result(position, pois, 3);
     return result;
 }
 
 void testCtor(){
-    auto position=createPosition();
-    std::string pois[]={"Sauron", "Minas Morgul", "Orodruin"};
+    auto position = createPosition();
+    std::string pois[] = {"Sauron", "Minas Morgul", "Orodruin"};
     hfu::City city(position,pois,3);
-    pois[0]="Gandalf";
-    assert(city.getPOI(0)=="Sauron");
+    pois[0] = "Gandalf";
+    assert(city.getPOI(0) == "Sauron");
 }
 
 void testGetNameXY(){
-    auto position=createPosition();
+    auto position = createPosition();
     hfu::City city(position, nullptr,0);
-    assert(city.getName()=="Mordor");
-    assert(city.getX()==47);
-    assert(city.getY()==11);
+    assert(city.getName() == "Mordor");
+    assert(city.getX() == 47);
+    assert(city.getY() == 11);
 }
 
 
 void testGetPOI(){
     auto city=createCity();
-    assert(city.getPOI(0)=="Sauron");
-    assert(city.getPOI(1)=="Minas Morgul");
-    assert(city.getPOI(2)=="Orodruin");
+    assert(city.getPOI(0) == "Sauron");
+    assert(city.getPOI(1) == "Minas Morgul");
+    assert(city.getPOI(2) == "Orodruin");
     try {
         city.getPOI(3);
         assert(false);
@@ -49,9 +50,9 @@ void testGetPOI(){
 }
 
 void testSetPOI(){
-    auto city=createCity();
+    auto city = createCity();
     city.setPOI(0,"Gandalf");
-    assert(city.getPOI(0)=="Gandalf");
+    assert(city.getPOI(0) == "Gandalf");
 
     try {
         city.setPOI(3,"Gandalf");
@@ -64,8 +65,8 @@ void testSetPOI(){
 }
 
 void testGetNumberOfPOIs(){
-    auto city=createCity();
-    assert(city.getNumberOfPOIs()==3);
+    auto city = createCity();
+    assert(city.getNumberOfPOIs() == 3);
 }
 
 
