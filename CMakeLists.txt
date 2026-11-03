@@ -19,6 +19,9 @@ add_executable(Objekt_Orientierte_Programmierung_Tutorium
         Blatt4/city.h
         Blatt4/Aufgabenblatt4.cpp
         Blatt4/Aufg4.h
+        Blatt4/City.cpp
+        Blatt4/Position.cpp
+        Blatt4/Position.h
 )
 
 target_compile_options(Objekt_Orientierte_Programmierung_Tutorium PRIVATE -Wall -Wextra)

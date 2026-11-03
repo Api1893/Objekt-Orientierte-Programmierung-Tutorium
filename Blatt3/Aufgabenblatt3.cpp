@@ -55,6 +55,7 @@ namespace hfu {
             position[j + 1] = key;
         }
     }
+
 }
 
 int main() {

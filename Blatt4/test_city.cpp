@@ -1,6 +1,6 @@
 #include <cassert>
 #include <string>
-#include "city.h"
+#include "City.h"
 
 hfu::Position createPosition(){
     std::string mordor = "Mordor";
@@ -30,7 +30,6 @@ void testGetNameXY(){
     assert(city.getX() == 47);
     assert(city.getY() == 11);
 }
-
 
 void testGetPOI(){
     auto city=createCity();
@@ -66,7 +65,6 @@ void testGetNumberOfPOIs(){
     auto city = createCity();
     assert(city.getNumberOfPOIs() == 3);
 }
-
 
 void testCity() {
     testCtor();
