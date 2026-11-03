@@ -3,11 +3,8 @@
 //
 
 #include <cassert>
-#ifndef OBJEKT_ORIENTIERTE_PROGRAMMIERUNG_TUTORIUM_VARIABLE_H
-#define OBJEKT_ORIENTIERTE_PROGRAMMIERUNG_TUTORIUM_VARIABLE_H
-#endif //OBJEKT_ORIENTIERTE_PROGRAMMIERUNG_TUTORIUM_VARIABLE_H
-
 // Aufgabe 3 b) Trennung zwischen Dateinamen und implemntierung
+
 namespace hfu {
 // ------------- Aufgabe 1 a) -----------------
     int* copy(int* numbers, int size) {
@@ -21,9 +18,21 @@ namespace hfu {
     }
 
     // --------- Aufgabe 1 b) ----------------
+    // Hilfszähler für compare
+    int count(int* numbers, int size, int value) {
+        int result = 0;
+        for (int i = 0; i < size; i++) {
+            if (numbers[i] == value) {
+                result++;
+            }
+        }
+        return result;
+    }
+
     void compare(int* sorted, int* numbers, int size) {
-    for(int i = 0; i + 1 < size; i++) {
-        assert(sorted[i] <= sorted[i + 1]);
+        for (int i = 0; i < size; i++) {
+            int value = sorted[i];
+            assert(count(sorted, size, value) == count(numbers, size, value));
         }
     }
 
@@ -70,15 +79,18 @@ namespace hfu {
 
     // --------- Aufgabe 3 b) ----------------
     // String vergleichen
-    void stringCompare(std::string& text1, std::string& text2) {
-        std::cout << (text1 == text2) << std::endl;
-        std::cout << (text1 < text2) << std::endl;
-        std::cout << (text1 > text2) << std::endl;
+    void stringCompare(const std::string& text1, const std::string& text2) {
+        std::cout << (text1 == text2) << std::endl;   // 0: nicht gleich
+        std::cout << (text1 < text2) << std::endl;    // 1: "E" kommt vor "Z"
+        std::cout << (text1 > text2) << std::endl;    // 0
 
-        std::string firstCompareText = text1;
-        std::string secondCompareText = text2;
+        assert(text1 != text2);
+        assert(text1 < text2);
+        assert(text1.compare(text2) < 0);
+        assert(text2.compare(text1) > 0);
+        assert(text1.compare(text1) == 0);
 
-        // Damit der Inhalt verglichen wird des Objektes. Wird die compare() Methode verwendet
-        assert(firstCompareText.compare(secondCompareText));
+        assert(std::string("Zordor") < std::string("mordor"));  // Gross vor Klein
+        assert(std::string("Mord") < std::string("Mordor"));    // kürzer kommt zuerst
     }
 }

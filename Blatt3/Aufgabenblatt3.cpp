@@ -8,41 +8,9 @@
 #include <cassert>
 #include <string>
 #include "variables.h"
+#include "Position.h"
 
 namespace hfu {
-    class Position {
-    private:
-        int x;
-        int y;
-        std::string name;
-
-    public:
-        // Konstruktor von Aufgabe 2 a)
-        Position (const std::string& name, int x, int y) : name(name), x(x), y(y) {}
-
-        int getX() const {
-            return x;
-        }
-
-        int getY() const {
-            return y;
-        }
-
-        const std::string& getName() const {
-            return name;
-        }
-
-        int compare(const Position& other) const {
-            // other liefert Objekt im Klammern (position)
-            // x oder nur getX() liefert Objekt vor dem (.), also Bsp. other.
-            if (name < other.name) return -1;
-            if (name > other.name)return 1;
-            if (x != other.x) return x - other.x;
-            if (y != other.y) return y - other.y;
-            return 0;
-        }
-    };
-
     // --------- Aufgabe 4 ----------------
     void sort(hfu::Position* position, int size) {
         for (int i = 1; i < size; i++) {
@@ -55,7 +23,6 @@ namespace hfu {
             position[j + 1] = key;
         }
     }
-
 }
 
 int main() {
@@ -73,7 +40,8 @@ int main() {
     delete[] result;
 
     std::cout << "----------- Aufgabe 1 b) --------------" << std::endl;
-    int numbersNotSorted[6] = {2,1,5,4,8};
+    //int numbersNotSorted[6] = {2,1,5,4,8}; // Ausklammern für assert
+    int numbersNotSorted[6] = {1,2,3,4,5,8};
     int sizeToCompare = 6;
     int numbersSorted[6] = {1,2,3,4,5,8};
     hfu::compare(numbersSorted, numbersNotSorted, sizeToCompare);
@@ -94,9 +62,9 @@ int main() {
     assert(position.getX() == 47);
     assert(position.getY() == 11);
 
-    /* Die Variable wird nicht geändert, da es auf die Kopie eines Objekt zugreift.
-     * Also Position.getName(). Zudem muss es vor hfu::Position initialisiert werden.
-     * Eine andere Möglichkeit wäre es als Referenz zu übergeben. */
+    /* Das Objekt speichert eine eigene Kopie des Namens (der Member ist std::string und kein Verweis)
+     * Wenn sch die var außerhalb ändert. Ändert es nichts am Objekt.
+     * Wenn man will, das sich es mit ändert, dann nimmt man Referenz. */
     mordor[0] = 'X';
     std::cout << mordor + " Test Ausgabe fuer Index 0" << std::endl;
     assert(position.getName() == "Mordor");
