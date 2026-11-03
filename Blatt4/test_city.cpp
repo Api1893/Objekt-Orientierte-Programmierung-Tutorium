@@ -2,14 +2,12 @@
 #include <string>
 #include "city.h"
 
-// Konstruktor für Position
 hfu::Position createPosition(){
     std::string mordor = "Mordor";
     hfu::Position result(mordor, 47, 11);
     return result;
 }
 
-// Konstruktor für City
 hfu::City createCity(){
     auto position = createPosition();
     std::string pois[] = {"Sauron", "Minas Morgul", "Orodruin"};

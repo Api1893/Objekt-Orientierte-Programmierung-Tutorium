@@ -2,6 +2,7 @@
 #include <cassert>
 #include <stdexcept>
 
+// Aufgabe 1
 namespace hfu {
     int gcd(int v, int w){
         if (v == 0 && w == 0) throw std::invalid_argument ("v and w cannot be 0");

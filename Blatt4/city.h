@@ -5,36 +5,9 @@
 #ifndef OBJEKT_ORIENTIERTE_PROGRAMMIERUNG_TUTORIUM_CITY_H
 #define OBJEKT_ORIENTIERTE_PROGRAMMIERUNG_TUTORIUM_CITY_H
 
-#endif //OBJEKT_ORIENTIERTE_PROGRAMMIERUNG_TUTORIUM_CITY_H
+#include <string>
 
 namespace hfu {
-    // jede Stadt hat einen Namen
-    std::string getName() {};
-
-    // jede Stadt hat eine x-Koordinate
-    int getX(){};
-
-    // jede Stadt hat eine y-Koordinate
-    int getY(){};
-
-    // jede Stadt hat Sehenswürdigkeiten (Points of Interest), auf die man zugreifen kann
-    int getPOI(int i) {};
-
-    // jede Stadt hat Sehenswürdigkeiten (Points of Interest), die man ändern kann
-    int setPOI(int i, ???){}
-
-    // es gibt je Stadt eine bestimmte Zahl an Sehenswürdigkeiten.
-    int getNumberOfPOIs(){};
-
-    class City {
-    private:
-
-
-    public:
-        City(const std::string& position, int[] pois);
-
-    };
-
     // ------------------------- Klasse Position ------------------------------
     class Position {
     private:
@@ -68,4 +41,44 @@ namespace hfu {
             return 0;
         }
     };
+
+    class City {
+    private:
+        Position position;
+        std::string name;
+        int numberOfPOIs;
+
+    public:
+        City(const Position& pos, std::string* name, int numberOfPOIs);
+
+        // jede Stadt hat einen Namen
+        std::string getName() const{
+            return name;
+        };
+
+        // jede Stadt hat eine x-Koordinate
+        int getX() const {
+            return x;
+        };
+
+        // jede Stadt hat eine y-Koordinate
+        int getY() {
+            return y;
+        };
+
+        // jede Stadt hat Sehenswürdigkeiten (Points of Interest), auf die man zugreifen kann
+        int getPOI(int i) {
+            return i;
+        };
+
+        // jede Stadt hat Sehenswürdigkeiten (Points of Interest), die man ändern kann
+        int setPOI(int i, ???){}
+
+        // es gibt je Stadt eine bestimmte Zahl an Sehenswürdigkeiten.
+        int getNumberOfPOIs() {
+            return numberOfPoi;
+        };
+    };
+
 }
+#endif OBJEKT_ORIENTIERTE_PROGRAMMIERUNG_TUTORIUM_CITY_H
