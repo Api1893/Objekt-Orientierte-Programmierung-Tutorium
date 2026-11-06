@@ -14,7 +14,7 @@ int countChar(char* wort, char gezaehltesWort)
     return anzahlDerZeichen;
 }
 
-int main()
+void task3()
 {
     std::cout << "Programm start..." << std::endl;
 

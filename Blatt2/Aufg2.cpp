@@ -13,7 +13,7 @@ int countChar(const std::string& wort, char gesuchtesWort) {
       return anzahlGesuchtesWort;
 }
 
-int main() {
+void task2() {
       std::cout << "Programm start..." << std::endl;
 
       int anzahlMenge = countChar("Mississippi", 's');

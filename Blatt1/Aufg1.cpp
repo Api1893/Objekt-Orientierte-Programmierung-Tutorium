@@ -23,7 +23,7 @@ void grade(int points)
     }
 }
 
-int main()
+void task1()
 {
     std::cout << "starting tests..." << std::endl;
     grade(80);

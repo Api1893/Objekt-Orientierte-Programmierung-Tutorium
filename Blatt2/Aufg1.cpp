@@ -25,7 +25,7 @@ void sortThree(int& a, int& b, int& c)
     }
 }
 
-int main()
+void task1()
 {
     std::cout << "Programm start..." << std::endl;
     int x = 10, y = 23, z = 5;

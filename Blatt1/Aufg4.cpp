@@ -11,7 +11,7 @@ int* reversed(const int numbers[], int size) {
     return neueReihenfolge;
 }
 
-int main() {
+void task4() {
     std::cout << "Programm start..." << std::endl;
 
     int numbers[] = {1, 2, 3, 4, 5};

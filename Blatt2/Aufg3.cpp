@@ -8,7 +8,7 @@ std::string grade(int points) {
         if (points >= 90) return "Sehr gut";
 }
 
-int main() {
+void task3() {
         std::cout << "Programm start..." << std::endl;
 
         std::cout << grade(40) << std::endl;

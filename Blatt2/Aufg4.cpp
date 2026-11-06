@@ -28,7 +28,7 @@ class Position {
         }
 };
 
-int main() {
+void task4() {
     std::cout << "Programm start..." << std::endl;
 
     Position mordor;

@@ -1,30 +1,49 @@
-cmake_minimum_required(VERSION 4.3)
+cmake_minimum_required(VERSION 3.20)
 project(Objekt_Orientierte_Programmierung_Tutorium)
 
 set(CMAKE_CXX_STANDARD 14)
+set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
-include_directories(Blatt2)
+# ------------------------------------------------------------------
+# Jeder Ordner "BlattN" wird automatisch ein eigenes Programm.
+#
+#  - Alle .cpp-Dateien im Ordner gehören zum Programm "BlattN".
+#    Pro Blatt darf es deshalb nur EINE Datei mit main() geben
+#    (AufgabenblattN.cpp).
+#  - Dateien mit "Mitschrieb" im Namen sind Vorlesungsnotizen und
+#    werden jeweils ein eigenes Programm (z. B. "Blatt4_Mitschrieb").
+#
+# Neue Dateien oder ein neuer Ordner "Blatt6" müssen hier NICHT
+# eingetragen werden. In CLion danach nur "Reload CMake Project".
+# ------------------------------------------------------------------
 
-add_executable(Objekt_Orientierte_Programmierung_Tutorium
-        Blatt1/Aufg1.cpp
-        Blatt1/Aufg2.cpp
-        Blatt1/Aufg3.cpp
-        Blatt1/Aufg4.cpp
-        Blatt2/Aufg1.cpp
-        Blatt2/Aufg2.cpp
-        Blatt2/Aufg3.cpp
-        Blatt2/Aufg4.cpp
-        Blatt3/Vorlesung_mitschrieb.cpp
-        Blatt3/Aufgabenblatt3.cpp
-        Blatt4/city.h
-        Blatt4/Aufgabenblatt4.cpp
-        Blatt4/Aufg4.h
-        Blatt4/City.cpp
-        Blatt4/Position.cpp
-        Blatt4/Position.h
-        Blatt5/Mitschrieb.cpp
-        Blatt5/Mitschrieb.h
-        Blatt3/Position.h
-)
+file(GLOB sheets RELATIVE ${CMAKE_CURRENT_SOURCE_DIR}
+        CONFIGURE_DEPENDS ${CMAKE_CURRENT_SOURCE_DIR}/Blatt*)
 
-target_compile_options(Objekt_Orientierte_Programmierung_Tutorium PRIVATE -Wall -Wextra)
+foreach (sheet ${sheets})
+    if (IS_DIRECTORY ${CMAKE_CURRENT_SOURCE_DIR}/${sheet})
+
+        file(GLOB sources CONFIGURE_DEPENDS ${sheet}/*.cpp)
+
+        # Mitschriebe aus dem Blatt-Programm heraushalten
+        set(notes ${sources})
+        list(FILTER notes INCLUDE REGEX "[Mm]itschrieb[^/]*\\.cpp$")
+        list(FILTER sources EXCLUDE REGEX "[Mm]itschrieb[^/]*\\.cpp$")
+
+        # Programm für das Aufgabenblatt
+        if (sources)
+            add_executable(${sheet} ${sources}
+                    Blatt3/Aufg1.cpp
+            )
+            target_compile_options(${sheet} PRIVATE -Wall -Wextra)
+        endif ()
+
+        # Je ein Programm pro Mitschrieb
+        foreach (note ${notes})
+            get_filename_component(name ${note} NAME_WE)
+            add_executable(${sheet}_${name} ${note})
+            target_compile_options(${sheet}_${name} PRIVATE -Wall -Wextra)
+        endforeach ()
+
+    endif ()
+endforeach ()
