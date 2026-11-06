@@ -2,7 +2,6 @@
 // Created by skyto on 27.10.2026.
 //
 
-#include "Mitschrieb.h"
 #include <iostream>
 
 class Point {
