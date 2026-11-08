@@ -1,7 +1,6 @@
 //
 // Created by Apisit on 30.10.2026.
 //
-
 #ifndef OBJEKT_ORIENTIERTE_PROGRAMMIERUNG_TUTORIUM_CITY_H
 #define OBJEKT_ORIENTIERTE_PROGRAMMIERUNG_TUTORIUM_CITY_H
 
@@ -12,9 +11,10 @@ namespace hfu {
     class City {
     private:
         const Position position;
-        std::string* numberOfList;
-        int index;
-        void initCity(std::string* list);
+        std::string* pois;  // Kopierte Array
+        int count;  // Anzahl der Sehenswürdigkeiten
+        std::string* initCity(std::string* list, int numberOfList);
+        void checkIndex(int i) const;
 
     public:
         City(Position position, std::string* list, int numberOfList);
@@ -31,6 +31,5 @@ namespace hfu {
         // es gibt je Stadt eine bestimmte Zahl an Sehenswürdigkeiten.
         int getNumberOfPOIs() const;
     };
-
 }
-#endif OBJEKT_ORIENTIERTE_PROGRAMMIERUNG_TUTORIUM_CITY_H
+#endif // OBJEKT_ORIENTIERTE_PROGRAMMIERUNG_TUTORIUM_CITY_H
