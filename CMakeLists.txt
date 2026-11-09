@@ -32,8 +32,7 @@ foreach (sheet ${sheets})
 
         # Programm für das Aufgabenblatt
         if (sources)
-            add_executable(${sheet} ${sources}
-                    Blatt5/Aufgabenblatt5.h)
+            add_executable(${sheet} ${sources})
             target_compile_options(${sheet} PRIVATE -Wall -Wextra)
         endif ()
 

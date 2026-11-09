@@ -2,30 +2,21 @@
 #include <string>
 #include "City.h"
 
-hfu::Position createPosition(){
-    std::string mordor = "Mordor";
-    hfu::Position result(mordor, 47, 11);
-    return result;
-}
-
 hfu::City createCity(){
-    auto position = createPosition();
     std::string pois[] = {"Sauron", "Minas Morgul", "Orodruin"};
-    hfu::City result(mordor, 47, 11, pois, 3);
+    hfu::City result("Mordor", 47, 11, pois, 3);
     return result;
 }
 
 void testCtor(){
-    auto position = createPosition();
     std::string pois[] = {"Sauron", "Minas Morgul", "Orodruin"};
-    hfu::City city(position,pois,3);
+    hfu::City city("Mordor", 47, 11, pois, 3);
     pois[0] = "Gandalf";
     assert(city.getPOI(0) == "Sauron");
 }
 
 void testGetNameXY(){
-    auto position = createPosition();
-    hfu::City city(position, nullptr,0);
+    hfu::City city("Mordor", 47, 11, nullptr, 0);
     assert(city.getName() == "Mordor");
     assert(city.getX() == 47);
     assert(city.getY() == 11);
