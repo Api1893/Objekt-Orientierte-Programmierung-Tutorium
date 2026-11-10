@@ -18,6 +18,4 @@ namespace hfu{
         int compare(const Position& other) const;
     };
 }
-
-
 #endif //OBJEKT_ORIENTIERTE_PROGRAMMIERUNG_TUTORIUM_POSITION_H
