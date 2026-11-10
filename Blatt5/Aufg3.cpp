@@ -7,6 +7,7 @@ namespace hfu {
         std::cout << "-------------- Aufgabe 3 ----------------" << std::endl;
         std::cout << "Für die Klasse Position ist kein Destruktor notwendig, weil Position" << std::endl;
         std::cout << "keinen speicher mit new Array anlegt." << std::endl;
+        std::cout << "Auch bei Referenz ist es nicht notwendig, da es nicht auf dem gleichen Speicher zugreift." << std::endl;
         std::cout << "----------------------------------------------------------" << std::endl;
         std::cout << "Für die Klasse City ist es hingegen notwendig," << std::endl;
         std::cout << "weil im initCity ein neues Array mit new std::string[] angelegt wird." << std::endl;

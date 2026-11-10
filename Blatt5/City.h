@@ -19,6 +19,9 @@ namespace hfu {
         City(const std::string& name, int x, int y, std::string* pois, int length);
         ~City();    // Destruktor deklaration
 
+        // Kopierkonstruktor
+        City(const City& other);
+
         // jede Stadt hat einen Namen
         std::string getName() const;
 

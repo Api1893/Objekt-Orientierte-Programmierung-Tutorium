@@ -2,6 +2,7 @@
 #include "Position.h"
 #include <string>
 #include <stdexcept>
+#include <cassert>
 
 namespace hfu {
     City::City(Position position, std::string* list, int numberOfList)
@@ -10,6 +11,10 @@ namespace hfu {
     // Neuer Konstruktor
     City::City(const std::string& name, int x, int y, std::string* pois, int length)
         :   City(Position(name, x, y), pois, length) {}
+
+    // Kopierkonstruktor für Tiefenkopie über Konstruktoverkettung
+    City::City(const City &other)
+        : City(other.position, other.pois, other.count) {}
 
     std::string* City::initCity(std::string* list, int numberOfList) {
         std::string* newList = new std::string[numberOfList];

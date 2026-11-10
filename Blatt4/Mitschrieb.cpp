@@ -43,7 +43,7 @@ void dump(Point p) {
 int main() {
     Point p(47, 11);
     Point p_copy = Point(p);
-
+    //                      Mitschrieb vom Blatt 4
     // ----------------------------- 3.11.26 ------------------------
     // Heap erzeugen mit new, dann kommt es als Zeiger zurück
     int* v = new int;
@@ -66,4 +66,51 @@ int main() {
         Point point(47, 11);
         delete point;
     }
+    // ------------------------------------------------------------------------
+    //                      Mitschrieb vom Blatt 6
+/*
+    Class Point {
+        private:
+            const int x,y;
+        public:
+        Point(int x, int y) : x(x), y(y);
+
+        Point operator - (const Point& right) const {
+            return* this + (-right);
+        }
+
+        Point operator-() const{
+            return Point (-x, -y);
+        }
+
+        Point operator * (int right) const {
+            return Point (right*x, right*y);
+        }
+
+        int getX() {
+            return x;
+        }
+
+        int getY() {
+            return y;
+        }
+    };
+
+    Point operator ** (int left, const Point& right) const {
+        return Point (left*
+        right.getx(), left* right.getY());
+    }
+
+    int main() {
+        Point p(47, 11);
+        Point q(23,42);
+        Point r = p + q;
+        Point s = p - q;
+        Point t = -p;
+
+        Point u = p.operator(2);
+        Point v = 2.operator(p);
+
+        std::cout << r.getX() << std::endl;
+    }*/
 }

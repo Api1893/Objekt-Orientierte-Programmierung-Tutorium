@@ -1,10 +1,11 @@
-#include "City.h"
-#include "Position.h"
 #include <string>
 #include <stdexcept>
+#include "City.h"
+#include "Position.h"
 
 namespace hfu {
-    City::City(Position position, std::string* list, int numberOfList) : position(position), pois(initCity(list, numberOfList)), count(numberOfList){
+    City::City(const Position& position, std::string* list, int numberOfList)
+        : position(position), pois(initCity(list, numberOfList)), count(numberOfList){
     }
 
     std::string* City::initCity(std::string* list, int numberOfList) {
@@ -15,12 +16,12 @@ namespace hfu {
         return newList;
     }
 
-    void City::setPOI(int i, std::string newPois) const {
+    void City::setPOI(int i, const std::string& newPois) const {
         checkIndex(i);
         this -> pois[i] = newPois;
     }
 
-    std::string City::getPOI(int i) const {
+    const std::string& City::getPOI(int i) const {
         checkIndex(i);
         return pois[i];
     }
@@ -29,7 +30,7 @@ namespace hfu {
         return this -> position.getX();
     }
 
-    std::string City::getName() const {
+    const std::string& City::getName() const {
         return this -> position.getName();
     }
 

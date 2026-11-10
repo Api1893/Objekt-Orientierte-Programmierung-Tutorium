@@ -8,5 +8,7 @@ namespace hfu {
 int main () {
     //hfu::task1();
     //hfu::task2();
-    hfu::task3();
+    //hfu::task3();
+    hfu::task4();
+
 }
