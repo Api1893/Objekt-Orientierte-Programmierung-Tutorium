@@ -19,6 +19,11 @@ namespace hfu {
         return newList;
     }
 
+    // Destruktor
+    City::~City() {
+        delete [] pois;
+    }
+
     void City::setPOI(int i, std::string newPois) const {
         checkIndex(i);
         this -> pois[i] = newPois;

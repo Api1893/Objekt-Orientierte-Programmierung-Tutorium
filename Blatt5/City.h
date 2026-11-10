@@ -17,16 +17,23 @@ namespace hfu {
 
     public:
         City(const std::string& name, int x, int y, std::string* pois, int length);
+        ~City();    // Destruktor deklaration
+
         // jede Stadt hat einen Namen
         std::string getName() const;
+
         // jede Stadt hat eine x-Koordinate
         int getX() const;
+
         // jede Stadt hat eine y-Koordinate
         int getY() const;
+
         // jede Stadt hat Sehenswürdigkeiten (Points of Interest), auf die man zugreifen kann
         std::string getPOI(int i) const;
+
         // jede Stadt hat Sehenswürdigkeiten (Points of Interest), die man ändern kann
         void setPOI(int i, std::string newPois) const;
+
         // es gibt je Stadt eine bestimmte Zahl an Sehenswürdigkeiten.
         int getNumberOfPOIs() const;
     };
