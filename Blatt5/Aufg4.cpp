@@ -9,7 +9,7 @@ namespace hfu {
         std::cout << "--------- Aufgabe 4 ----------------" << std::endl;
         std::string pois[]={"Sauron", "Minas Morgul", "Orodruin"};
         // City bauen
-        hfu::City mordor("Mordor", 47, 11, pois, 3);
+        City mordor("Mordor", 47, 11, pois, 3);
 
         // Hier wird Kopiekonstruktor aufgerufen
         auto copy = mordor;

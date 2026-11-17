@@ -2,10 +2,9 @@
 #include "Position.h"
 #include <string>
 #include <stdexcept>
-#include <cassert>
 
 namespace hfu {
-    City::City(Position position, std::string* list, int numberOfList)
+    City::City(const Position& position, std::string* list, int numberOfList)
         :   position(position), pois(initCity(list, numberOfList)), count(numberOfList) {}
 
     // Neuer Konstruktor

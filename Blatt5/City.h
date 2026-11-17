@@ -1,19 +1,20 @@
 #ifndef OBJEKT_ORIENTIERTE_PROGRAMMIERUNG_TUTORIUM_CITY_H
 #define OBJEKT_ORIENTIERTE_PROGRAMMIERUNG_TUTORIUM_CITY_H
-
 #include <string>
 #include "Position.h"
 
 namespace hfu {
     class City {
     private:
-        // Aufgabe 5 den alten Konstruktor private machen
-        City(Position position, std::string* list, int numberOfList);
+        // Attribute
         const Position position;
         std::string* pois;
         int count;  // Anzahl der Sehenswürdigkeiten
         std::string* initCity(std::string* list, int numberOfList);
         void checkIndex(int i) const;
+
+        // Aufgabe 5 den alten Konstruktor private machen
+        City(const Position& position, std::string* list, int numberOfList);
 
     public:
         City(const std::string& name, int x, int y, std::string* pois, int length);
