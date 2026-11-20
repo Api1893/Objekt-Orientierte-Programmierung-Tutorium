@@ -16,17 +16,13 @@ namespace hfu {
 
         try {
             City city("Mordor", 47, 11, nullptr, 23);
-
-
             assert(false);
+        } catch (...) {}
 
-        } catch (...) {
-
-        }
-
-        /*  Leeres POIs wird übergeben
+        // Leeres POIs wird übergeben
+        // Dazu wurde im header einen extra Konstruktor dafür angelegt
+        // und im .cpp Datei auch
         City empty("Mordor", 47, 11);
         assert(empty.getNumberOfPOIs() == 0);
-        */
     }
 }

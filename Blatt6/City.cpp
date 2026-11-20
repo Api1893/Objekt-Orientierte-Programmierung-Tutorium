@@ -2,7 +2,6 @@
 #include "Position.h"
 #include <string>
 #include <stdexcept>
-#include <cassert>
 
 namespace hfu {
     City::City(Position position, std::string* list, int numberOfList)
@@ -17,12 +16,20 @@ namespace hfu {
         : City(other.position, other.pois, other.count) {}
 
     std::string* City::initCity(std::string* list, int numberOfList) {
+        if (list == nullptr && numberOfList > 0 || numberOfList < 0) {
+            throw std::invalid_argument ("Fehlereingabe bei der initCity");
+        }
+
         std::string* newList = new std::string[numberOfList];
         for (int j = 0; j < numberOfList; j++) {
             newList[j] = list[j];
         }
         return newList;
     }
+
+    // Extra Konstruktor für 3 Eingaben
+    City::City(const std::string& name, int x, int y)
+    : City(name, x, y, nullptr, 0){}
 
     // Destruktor
     City::~City() {

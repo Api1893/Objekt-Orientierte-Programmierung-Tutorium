@@ -22,6 +22,9 @@ namespace hfu {
         // Kopierkonstruktor
         City(const City& other);
 
+        // Zusatzkonstruktor für 3 Paramter
+        City(const std::string& name, int x, int y);
+
         // jede Stadt hat einen Namen
         std::string getName() const;
 
